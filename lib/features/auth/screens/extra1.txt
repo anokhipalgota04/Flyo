@@ -1,0 +1,83 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/constants/constants.dart';
+import 'package:flutter_application_1/core/sign_in_button.dart';
+import 'package:video_player/video_player.dart';
+
+
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  late VideoPlayerController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = VideoPlayerController.asset(Constants.videoPath)
+      ..initialize().then((_) {
+        _controller.play();
+        _controller.setLooping(true);
+        setState(() {});
+      });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final isLoading
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Column(
+          children: [
+            Text('Trip Saathi',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold), ),
+            Text('Chalo Gumne',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold), ),
+          ],
+        )
+       
+       ,
+        actions: [
+          TextButton(
+            onPressed: () {
+              print("Skip");
+            },
+            child: Text('Skip'),
+          )
+        ],
+        titleSpacing: 0,
+        
+      ),
+      body: Stack(
+        children: [
+          _controller.value.isInitialized
+              ? AspectRatio(
+                  aspectRatio: _controller.value.aspectRatio,
+                  child: VideoPlayer(_controller),
+                )
+              : Container(), // Placeholder for video
+          Column(
+            children: [
+              SizedBox(height: 15),
+              // Text(
+              //   'ChalO Gumne',
+              //   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              // ),
+            
+              SizedBox(height: 600),
+              SigninButton(),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
