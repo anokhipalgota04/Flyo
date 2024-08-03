@@ -1,6 +1,6 @@
 # “Flyo - Where Ideas and Conversations Soar”
 
-Flyo is a community forum app offering a platform for users to engage in discussions, share content, and connect with like-minded individuals.•	Flyo is a community forum app offering a platform for users to engage in discussions, share content, and connect with like-minded individuals.Technologies: Flutter Framework for the frontend, ensuring a smooth and responsive user experience, Dart, Firebase
+Flyo is a community forum app offering a platform for users to engage in discussions, share content, and connect with like-minded individuals.Incorporated robust features like post creation, voting mechanism, personalized content feeds and comments to highlight valuable content.Technologies: Flutter Framework for the frontend, ensuring a smooth and responsive user experience, Dart, Firebase
 
 ## Getting Started
 
